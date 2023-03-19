@@ -3,7 +3,6 @@ require("@nomiclabs/hardhat-etherscan");
 require("hardhat-deploy");
 require("solidity-coverage");
 require("hardhat-gas-reporter");
-require("hardhat-contract-sizer");
 require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -75,11 +74,6 @@ module.exports = {
           outputFile: "gasReport.txt",
           noColors: true,
           coinmarketcap: cMarCapApiKey,
-     },
-
-     contractSizer: {
-          runOnCompile: false,
-          only: ["Raffle"],
      },
 
      mocha: {
