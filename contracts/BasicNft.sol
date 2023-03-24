@@ -6,6 +6,8 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 // Basic nft Contract
 
 contract BasicNft is ERC721 {
+     string public constant TOKEN_URI = "ipfs://QmdtggfuYEUHZUFTBZjgvycaqLeDcXPFj8shMKGoJjGWK4";
+
      uint256 private s_tokenCounter;
 
      constructor() ERC721("nftZero", "ZERO") {
@@ -17,6 +19,11 @@ contract BasicNft is ERC721 {
           s_tokenCounter = s_tokenCounter + 1;
 
           return s_tokenCounter;
+     }
+
+     function tokenURI(uint256 /*tokenId*/) public view override returns (string memory) {
+          // require(_exists(tokenId))
+          return TOKEN_URI;
      }
 
      function getTokenCounter() public view returns (uint256) {
